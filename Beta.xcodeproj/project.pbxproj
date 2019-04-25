@@ -56,6 +56,7 @@
 		14492EFE226F8E12005FEA02 /* Beta */ = {
 			isa = PBXGroup;
 			children = (
+				14492F16226F9F68005FEA02 /* Utils */,
 				14492F15226F97A9005FEA02 /* View */,
 				14492F14226F978F005FEA02 /* Controller */,
 				14492F13226F977D005FEA02 /* Model */,
@@ -89,6 +90,13 @@
 				14492F03226F8E12005FEA02 /* Main.storyboard */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		14492F16226F9F68005FEA02 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
