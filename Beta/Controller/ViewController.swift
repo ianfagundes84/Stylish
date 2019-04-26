@@ -8,6 +8,8 @@
 
 import UIKit
 import CoreLocation
+import Alamofire
+import SwiftyJSON
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, CLLocationManagerDelegate {
     
@@ -23,9 +25,35 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         // Do any additional setup after loading the view.
         
         determineMyCurrentLocation()
+        
+        getSaloon(pos: "-22.907919504027547,-43.059062289570065")
     }
     
-    //MARK - GPS
+    //MARK: - Alamofire
+    
+    func getSaloon(pos latLong: String) -> Void {
+        
+        let urlString = "https://api.foursquare.com/v2/venues/explore?client_id=EPFA2ABVUS3R3BAQ0CHTFWIWKSDZCRXZTYAWTAAZ0WR5W53R&client_secret=RQNFWGTBO5ET5X3AJE5JY50A0LHFZ44VLP3YYZWJ1TUNUBJD&v=20180323&limit=10&ll=-22.907919504027547,-43.059062289570065&query=salao&radius=1000"
+        
+        Alamofire.request(urlString, method: .get).responseJSON {
+            response in
+            if response.result.isSuccess{
+                let saloesJson: JSON = JSON(response.result.value!)
+                self.updateSaloesJson(json: saloesJson)
+            }
+            else{
+                print("ERROR \(response.result.error)")
+            }
+        }
+    }
+    
+    //MARK: - JSON Parsing
+    func updateSaloesJson(json: JSON){
+        let saloonNameJson = json["response"]["groups"][0]["items"][0]["venue"]["name"]
+        print(saloonNameJson)
+    }
+    
+    //MARK: - GPS Manager
     
     func determineMyCurrentLocation() {
         locationManager = CLLocationManager()
@@ -44,7 +72,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         print("user latitude = \(userLocation.coordinate.latitude)")
         print("user longitude = \(userLocation.coordinate.longitude)")
+        
         manager.stopUpdatingLocation()
+        locationManager.delegate = nil
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error)
@@ -52,7 +82,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         print("Error \(error)")
     }
     
-    //MARK - TableView
+    //MARK: - TableView
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
