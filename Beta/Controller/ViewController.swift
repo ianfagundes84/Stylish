@@ -17,8 +17,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     var locationManager:CLLocationManager!
     
-    let saloes = [("Salao Teste")]
-    let imagens = [UIImage(named: "barber")]
+    var saloes = [String]()
+    var imagens = [UIImage(named: "barber")]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,15 +42,23 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                 self.updateSaloesJson(json: saloesJson)
             }
             else{
-                print("ERROR \(response.result.error)")
+                print("ERROR \(String(describing: response.result.error))")
             }
         }
     }
     
     //MARK: - JSON Parsing
     func updateSaloesJson(json: JSON){
-        let saloonNameJson = json["response"]["groups"][0]["items"][0]["venue"]["name"]
-        print(saloonNameJson)
+        
+        let saloonJson = json["response"]["groups"][0]["items"]
+        
+        for item in 0..<saloonJson.count{
+            
+            let name: JSON = (json["response"]["groups"][0]["items"][item]["venue"]["name"])
+            saloes.append(name.string!)
+        }
+        
+        print(saloes)
     }
     
     //MARK: - GPS Manager
