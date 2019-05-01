@@ -2,11 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "barber.jpg",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
+      "filename" : "unisex.png",
       "scale" : "2x"
     },
     {

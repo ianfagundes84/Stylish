@@ -11,9 +11,11 @@ import CoreLocation
 import Alamofire
 import SwiftyJSON
 
-class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, CLLocationManagerDelegate {
+class HomeViewController: UIViewController, CLLocationManagerDelegate {
     
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var femininoButton: UIButton!
+    @IBOutlet weak var masculinoButton: UIButton!
+    @IBOutlet weak var unisexButton: UIButton!
     
     var locationManager:CLLocationManager!
     
@@ -24,9 +26,21 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
+        buttonLayout(femininoButton)
+        buttonLayout(masculinoButton)
+        buttonLayout(unisexButton)
+        
         determineMyCurrentLocation()
         
         getSaloon(pos: "-22.907919504027547,-43.059062289570065")
+    }
+    
+    
+    //MARK: - ButtonLayout
+    func buttonLayout(_ botaoHome: UIButton!){
+        
+        botaoHome.layer.cornerRadius = 8
+        botaoHome.clipsToBounds = true
     }
     
     //MARK: - Alamofire
@@ -90,25 +104,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         print("Error \(error)")
     }
     
-    //MARK: - TableView
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return saloes.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CustomTableViewCell
-        
-        cell.label.text = self.saloes[indexPath .row]
-        cell.photo.image = self.imagens[indexPath.row]
-        
-        return cell
-    }
     
 }
 
