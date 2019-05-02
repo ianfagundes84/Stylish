@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		140CE07A227A7809008A40B3 /* SaloesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140CE079227A7809008A40B3 /* SaloesCollectionViewController.swift */; };
+		140CE07F227A8461008A40B3 /* Salao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140CE07E227A8461008A40B3 /* Salao.swift */; };
 		14492F00226F8E12005FEA02 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14492EFF226F8E12005FEA02 /* AppDelegate.swift */; };
 		14492F02226F8E12005FEA02 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14492F01226F8E12005FEA02 /* HomeViewController.swift */; };
 		14492F05226F8E12005FEA02 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14492F03226F8E12005FEA02 /* Main.storyboard */; };
@@ -17,6 +19,8 @@
 
 /* Begin PBXFileReference section */
 		13B90C52B959BC0D5AB7C0FF /* libPods-Beta.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Beta.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		140CE079227A7809008A40B3 /* SaloesCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaloesCollectionViewController.swift; sourceTree = "<group>"; };
+		140CE07E227A8461008A40B3 /* Salao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Salao.swift; sourceTree = "<group>"; };
 		14492EFC226F8E12005FEA02 /* Beta.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Beta.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		14492EFF226F8E12005FEA02 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		14492F01226F8E12005FEA02 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -40,9 +44,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		140CE07D227A843A008A40B3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				140CE07E227A8461008A40B3 /* Salao.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		14492EF3226F8E12005FEA02 = {
 			isa = PBXGroup;
 			children = (
+				14492EFF226F8E12005FEA02 /* AppDelegate.swift */,
 				14492EFE226F8E12005FEA02 /* Beta */,
 				14492EFD226F8E12005FEA02 /* Products */,
 				5C8432CA8000D2B5C4D1D64B /* Pods */,
@@ -61,29 +74,22 @@
 		14492EFE226F8E12005FEA02 /* Beta */ = {
 			isa = PBXGroup;
 			children = (
-				14492EFF226F8E12005FEA02 /* AppDelegate.swift */,
 				14492F15226F97A9005FEA02 /* Views */,
 				147F91C6227A1FC000B5FAE8 /* StoryBoards & Xibs */,
 				147F91C5227A1FB000B5FAE8 /* Assets */,
 				147F91C4227A1FA400B5FAE8 /* Layouts */,
 				147F91C3227A1F5B00B5FAE8 /* Supporting Files */,
 				14492F14226F978F005FEA02 /* View Controllers */,
-				14492F13226F977D005FEA02 /* Models */,
+				140CE07D227A843A008A40B3 /* Model */,
 			);
 			path = Beta;
-			sourceTree = "<group>";
-		};
-		14492F13226F977D005FEA02 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Models;
 			sourceTree = "<group>";
 		};
 		14492F14226F978F005FEA02 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				14492F01226F8E12005FEA02 /* HomeViewController.swift */,
+				140CE079227A7809008A40B3 /* SaloesCollectionViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -242,6 +248,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				14492F02226F8E12005FEA02 /* HomeViewController.swift in Sources */,
+				140CE07A227A7809008A40B3 /* SaloesCollectionViewController.swift in Sources */,
+				140CE07F227A8461008A40B3 /* Salao.swift in Sources */,
 				14492F00226F8E12005FEA02 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
