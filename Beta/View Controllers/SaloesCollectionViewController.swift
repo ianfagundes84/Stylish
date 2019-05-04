@@ -7,19 +7,30 @@
 //
 
 import UIKit
+import collection_view_layouts
 
+//MARK: - Protocol
+
+public protocol ContentDynamicLayoutDelegate: class {
+    func cellSize(indexPath: IndexPath) -> CGSize
+}
+
+//MARK: - Cell Definition
+private let itemsPerRow: CGFloat = 2
+
+private let sectionInsets = UIEdgeInsets(top: 50.0,
+                                         left: 20.0,
+                                         bottom: 50.0,
+                                         right: 20.0)
+
+//Mark: Class
 class SaloesCollectionViewController: UICollectionViewController {
     
     private let reuseIdentifier = "salaoCell"
     
-    private let sectionInsets = UIEdgeInsets(top: 50.0,
-                                             left: 20.0,
-                                             bottom: 50.0,
-                                             right: 20.0)
-    
     var resultadosBuscaSalao:[Salao] = []
     
-    private let itemsPerRow: CGFloat = 2
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,7 +68,7 @@ class SaloesCollectionViewController: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView
             .dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
-        cell.backgroundColor = .black
+cell.backgroundColor = .black
         // Configure the cell
         return cell
     }
@@ -95,11 +106,9 @@ class SaloesCollectionViewController: UICollectionViewController {
 }
 
 // MARK: - Collection View Flow Layout Delegate
-// - Define o Layout do projeto para testar pode comentar e verificar o comportamento.
-
-extension SaloesCollectionViewController : UICollectionViewDelegateFlowLayout {
+extension UICollectionViewController : UICollectionViewDelegateFlowLayout {
     //1
-    func collectionView(_ collectionView: UICollectionView,
+    public func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
         //2
@@ -111,16 +120,17 @@ extension SaloesCollectionViewController : UICollectionViewDelegateFlowLayout {
     }
     
     //3
-    func collectionView(_ collectionView: UICollectionView,
+    public func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         insetForSectionAt section: Int) -> UIEdgeInsets {
         return sectionInsets
     }
     
     // 4
-    func collectionView(_ collectionView: UICollectionView,
+    public func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return sectionInsets.left
     }
 }
+
