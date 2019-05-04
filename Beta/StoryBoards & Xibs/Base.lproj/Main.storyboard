@@ -131,19 +131,33 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="MCi-pv-RXD">
-                            <size key="itemSize" width="50" height="50"/>
+                            <size key="itemSize" width="150" height="250"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="salaoCell" id="MNP-Q3-MyO">
-                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="salaoCell" id="MNP-Q3-MyO" customClass="SalaoCollectionViewCell" customModule="Beta" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="150" height="250"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="150" height="250"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tTk-KA-RIP">
+                                            <rect key="frame" x="8" y="28" width="134" height="214"/>
+                                        </imageView>
+                                    </subviews>
                                 </view>
+                                <constraints>
+                                    <constraint firstAttribute="bottomMargin" secondItem="tTk-KA-RIP" secondAttribute="bottom" id="3YV-xj-1Sb"/>
+                                    <constraint firstItem="tTk-KA-RIP" firstAttribute="top" secondItem="MNP-Q3-MyO" secondAttribute="topMargin" id="9id-Tc-JnJ"/>
+                                    <constraint firstItem="tTk-KA-RIP" firstAttribute="leading" secondItem="MNP-Q3-MyO" secondAttribute="leadingMargin" id="Fse-6f-UP2"/>
+                                    <constraint firstAttribute="trailingMargin" secondItem="tTk-KA-RIP" secondAttribute="trailing" id="l4J-UP-bLD"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="image" destination="tTk-KA-RIP" id="nJz-iM-oau"/>
+                                </connections>
                             </collectionViewCell>
                         </cells>
                         <connections>
@@ -154,7 +168,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VP5-7H-7Px" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1713" y="95"/>
+            <point key="canvasLocation" x="1711.875" y="94.014084507042256"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="wga-gn-zTf">

@@ -47,7 +47,7 @@ class SaloesCollectionViewController: UICollectionViewController {
         resultadosBuscaSalao.append(salao4)
         resultadosBuscaSalao.append(salao5)
         
-        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+//        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         
         // Do any additional setup after loading the view.
     }
@@ -67,9 +67,11 @@ class SaloesCollectionViewController: UICollectionViewController {
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView
-            .dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
-cell.backgroundColor = .black
+            .dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! SalaoCollectionViewCell
         // Configure the cell
+        
+        cell.backgroundColor = .white
+        cell.image.image = resultadosBuscaSalao[indexPath.row].Imagem
         return cell
     }
     
