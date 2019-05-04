@@ -92,7 +92,7 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="unisex" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3yn-VA-2Sa">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="unissex" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3yn-VA-2Sa">
                                 <rect key="frame" x="6" y="513" width="308" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="24"/>
@@ -144,19 +144,30 @@
                                     <rect key="frame" x="0.0" y="0.0" width="150" height="250"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tTk-KA-RIP">
-                                            <rect key="frame" x="8" y="28" width="134" height="214"/>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tTk-KA-RIP">
+                                            <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5aj-j2-90s">
+                                            <rect key="frame" x="0.0" y="150" width="150" height="50"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="24"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u2A-WZ-N6Q">
+                                            <rect key="frame" x="0.0" y="200" width="150" height="50"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="14"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                 </view>
-                                <constraints>
-                                    <constraint firstAttribute="bottomMargin" secondItem="tTk-KA-RIP" secondAttribute="bottom" id="3YV-xj-1Sb"/>
-                                    <constraint firstItem="tTk-KA-RIP" firstAttribute="top" secondItem="MNP-Q3-MyO" secondAttribute="topMargin" id="9id-Tc-JnJ"/>
-                                    <constraint firstItem="tTk-KA-RIP" firstAttribute="leading" secondItem="MNP-Q3-MyO" secondAttribute="leadingMargin" id="Fse-6f-UP2"/>
-                                    <constraint firstAttribute="trailingMargin" secondItem="tTk-KA-RIP" secondAttribute="trailing" id="l4J-UP-bLD"/>
-                                </constraints>
                                 <connections>
+                                    <outlet property="descriptionLabel" destination="u2A-WZ-N6Q" id="msU-1q-AnX"/>
                                     <outlet property="image" destination="tTk-KA-RIP" id="nJz-iM-oau"/>
+                                    <outlet property="label" destination="5aj-j2-90s" id="KYp-KT-f4y"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>

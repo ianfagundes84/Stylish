@@ -9,19 +9,22 @@
 import UIKit
 import collection_view_layouts
 
-//MARK: - Protocol
-
-public protocol ContentDynamicLayoutDelegate: class {
-    func cellSize(indexPath: IndexPath) -> CGSize
-}
+////MARK: - Protocol
+//
+//public protocol ContentDynamicLayoutDelegate: class {
+//    func cellSize(indexPath: IndexPath) -> CGSize
+//}
 
 //MARK: - Cell Definition
-private let itemsPerRow: CGFloat = 2
+private let itemsPerRow: CGFloat = 1.0
+private let inset: CGFloat = 8.0
+private let spacing: CGFloat = 8.0
+private let lineSpacing: CGFloat = 8.0
 
-private let sectionInsets = UIEdgeInsets(top: 50.0,
-                                         left: 20.0,
-                                         bottom: 50.0,
-                                         right: 20.0)
+//private let sectionInsets = UIEdgeInsets(top: 10.0,
+//                                         left: 15.0,
+//                                         bottom: 10.0,
+//                                         right: 15.0)
 
 //Mark: Class
 class SaloesCollectionViewController: UICollectionViewController {
@@ -29,9 +32,7 @@ class SaloesCollectionViewController: UICollectionViewController {
     private let reuseIdentifier = "salaoCell"
     
     var resultadosBuscaSalao:[Salao] = []
-    
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -46,10 +47,7 @@ class SaloesCollectionViewController: UICollectionViewController {
         resultadosBuscaSalao.append(salao3)
         resultadosBuscaSalao.append(salao4)
         resultadosBuscaSalao.append(salao5)
-        
-//        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-        
-        // Do any additional setup after loading the view.
+    
     }
     
     // MARK: UICollectionViewDataSource
@@ -71,68 +69,45 @@ class SaloesCollectionViewController: UICollectionViewController {
         // Configure the cell
         
         cell.backgroundColor = .white
+
         cell.image.image = resultadosBuscaSalao[indexPath.row].Imagem
+        cell.label.text = resultadosBuscaSalao[indexPath.row].name
+        cell.descriptionLabel.text = resultadosBuscaSalao[indexPath.row].name
+
         return cell
     }
-    
-    // MARK: UICollectionViewDelegate
-    
-    /*
-     // Uncomment this method to specify if the specified item should be highlighted during tracking
-     override func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
-     return true
-     }
-     */
-    
-    /*
-     // Uncomment this method to specify if the specified item should be selected
-     override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-     return true
-     }
-     */
-    
-    /*
-     // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-     override func collectionView(_ collectionView: UICollectionView, shouldShowMenuForItemAt indexPath: IndexPath) -> Bool {
-     return false
-     }
-     
-     override func collectionView(_ collectionView: UICollectionView, canPerformAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) -> Bool {
-     return false
-     }
-     
-     override func collectionView(_ collectionView: UICollectionView, performAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) {
-     
-     }
-     */
 }
 
 // MARK: - Collection View Flow Layout Delegate
-extension UICollectionViewController : UICollectionViewDelegateFlowLayout {
+extension SaloesCollectionViewController : UICollectionViewDelegateFlowLayout {
     //1
     public func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
         //2
-        let paddingSpace = sectionInsets.left * (itemsPerRow + 1)
-        let availableWidth = view.frame.width - paddingSpace
-        let widthPerItem = availableWidth / itemsPerRow
+//        let paddingSpace = sectionInsets.left * (itemsPerRow + 1)
+//        let availableWidth = view.frame.width - paddingSpace
+//        let widthPerItem = availableWidth / itemsPerRow
         
-        return CGSize(width: widthPerItem, height: widthPerItem)
+        let width = Int((collectionView.frame.width / itemsPerRow) - inset)
+        return CGSize(width: width, height: width)
     }
     
     //3
     public func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         insetForSectionAt section: Int) -> UIEdgeInsets {
-        return sectionInsets
+        return UIEdgeInsets(top: inset, left: inset, bottom: inset, right: inset)
     }
     
+    public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return spacing
+    }
     // 4
     public func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return sectionInsets.left
+        return lineSpacing
     }
 }
 

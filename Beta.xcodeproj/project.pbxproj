@@ -76,6 +76,7 @@
 		14492EFE226F8E12005FEA02 /* Beta */ = {
 			isa = PBXGroup;
 			children = (
+				14535FC2227E34A50094A563 /* Layout */,
 				14535FBF227E01870094A563 /* View */,
 				147F91C6227A1FC000B5FAE8 /* StoryBoards & Xibs */,
 				147F91C5227A1FB000B5FAE8 /* Assets */,
@@ -101,6 +102,13 @@
 				14535FC0227E019B0094A563 /* SalaoCollectionViewCell.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		14535FC2227E34A50094A563 /* Layout */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Layout;
 			sourceTree = "<group>";
 		};
 		147F91C3227A1F5B00B5FAE8 /* Supporting Files */ = {
